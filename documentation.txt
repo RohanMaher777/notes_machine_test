@@ -1,0 +1,80 @@
+.env file 
+DB_HOST = 'localhost'
+DB_USERNAME = 'root'
+DB_PASSWORD = ''
+DB_NAME = 'notes_db'
+PORT= '6565'
+SECRET_KEY ='12345'
+ACCESS_SECRET_KEY = '45678'
+REFRESH_SECRET_KEY = '78910'
+
+1. Registration Api 
+method - POST 
+http://localhost:6565/users/register
+req.body =
+{
+    "name" : "Rohan",
+    "email" : "rohan@gmail.com",
+    "mobile" : 9865743514,
+    "password" : "rohan@123",
+    "confirm_password" : "rohan@123"
+}
+
+2. Login Api
+method - POST
+req.body =
+{
+    "email" : "rohan@gmail.com",
+    "password" : "rohan@123"
+}
+After login refresh token will going stored in the cookies 
+
+
+3. Generate_access_token Api
+method - POST
+http://localhost:6565/users/gen_access_token
+
+In the respose we will get access token for ex.
+{
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJyb2hhbkBnbWFpbC5jb20iLCJ0eXBlIjoidXNlciIsImlhdCI6MTcxMzE3OTk4NSwiZXhwIjoxNzEzMTgxNzg1fQ.U8a64_3IAvm-42wCT47ATB8CzfCWm6gO0eev2_bfn5A"
+}
+
+
+4. Add_notes
+method - POST
+http://localhost:6565/notes
+
+In the Authorization Type => Bearer Token we have to store the access token 
+Token : eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJyb2hhbkBnbWFpbC5jb20iLCJ0eXBlIjoidXNlciIsImlhdCI6MTcxMzE3OTk4NSwiZXhwIjoxNzEzMTgxNzg1fQ.U8a64_3IAvm-42wCT47ATB8CzfCWm6gO0eev2_bfn5A
+
+then hit the send button
+req.body =
+{
+    "title" : "MS Dhoni",
+    "body" : "MS Dhoni is Greatest of all time (GOAT)"
+}
+
+
+5. Get_all_notes
+method - GET
+http://localhost:6565/notes
+
+
+
+6. Get_note_by_id
+method - GET
+http://localhost:6565/notes/2
+
+
+7. Update_Note
+method - PUT
+http://localhost:6565/notes/2
+
+
+8. Delete_note_by_id
+method - DELETE
+http://localhost:6565/notes/1
+
+At the successfull deletion the paranoid work and timestamp will store in the deleted_At key in the database.
+
+

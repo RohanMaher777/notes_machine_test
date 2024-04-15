@@ -1,0 +1,183 @@
+{
+	"info": {
+		"_postman_id": "046fae3e-8ce3-4888-99ca-97d306931974",
+		"name": "Notes_api_collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "26185345",
+		"_collection_link": "https://insta-gift.postman.co/workspace/InstaGift-Workspace~7e8e50ce-dcc6-4212-8a23-4624f529445d/collection/26185345-046fae3e-8ce3-4888-99ca-97d306931974?action=share&source=collection_link&creator=26185345"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "User_registration",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Rohan\",\r\n    \"email\" : \"rohan@gmail.com\",\r\n    \"mobile\" : 9865743514,\r\n    \"password\" : \"rohan@123\",\r\n    \"confirm_password\" : \"rohan@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:6565/users/register"
+					},
+					"response": []
+				},
+				{
+					"name": "User_login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"rohan@gmail.com\",\r\n    \"password\" : \"rohan@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:6565/users/login"
+					},
+					"response": []
+				},
+				{
+					"name": "Generate_access_token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "http://localhost:6565/users/gen_access_token"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "notes",
+			"item": [
+				{
+					"name": "Add_notes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJyb2hhbkBnbWFpbC5jb20iLCJ0eXBlIjoidXNlciIsImlhdCI6MTcxMzE3ODg2MSwiZXhwIjoxNzEzMTc5NzYxfQ.WVfyy9yuUtBD_VoY3seYYU6Edc7Y1rXl_Zz6C1hc5Lc"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\" : \"MS Dhoni\",\r\n    \"body\" : \"MS Dhoni is Greatest of all time (GOAT)\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:6565/notes"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all notes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJyb2hhbkBnbWFpbC5jb20iLCJ0eXBlIjoidXNlciIsImlhdCI6MTcxMzE3ODg2MSwiZXhwIjoxNzEzMTc5NzYxfQ.WVfyy9yuUtBD_VoY3seYYU6Edc7Y1rXl_Zz6C1hc5Lc"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:6565/notes"
+					},
+					"response": []
+				},
+				{
+					"name": "Get_note_by_id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJyb2hhbkBnbWFpbC5jb20iLCJ0eXBlIjoidXNlciIsImlhdCI6MTcxMzE3ODg2MSwiZXhwIjoxNzEzMTc5NzYxfQ.WVfyy9yuUtBD_VoY3seYYU6Edc7Y1rXl_Zz6C1hc5Lc"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:6565/notes/2"
+					},
+					"response": []
+				},
+				{
+					"name": "Update_Note",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJyb2hhbkBnbWFpbC5jb20iLCJ0eXBlIjoidXNlciIsImlhdCI6MTcxMzE3ODg2MSwiZXhwIjoxNzEzMTc5NzYxfQ.WVfyy9yuUtBD_VoY3seYYU6Edc7Y1rXl_Zz6C1hc5Lc"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\" : \"MSD\",\r\n    \"body\" : \"MS Dhoni is Greatest of all time\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:6565/notes/2"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete_note_by_id",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Employee",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"role_type\" : \"backend\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:6565/employee/create"
+					},
+					"response": []
+				},
+				{
+					"name": "Get_all_employee",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
